@@ -1,0 +1,129 @@
+{% extends 'indexuser.html' %}
+
+{% load static %}
+
+{% block content1 %}
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h2>{{ movie.p_name }} </h2>
+        {#       Carousel begins#}
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="{{ movie.p_img1.url }}" alt="Los Angeles" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="{{ movie.p_img2.url }}" alt="Chicago" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="{{ movie.p_img3.url }}" alt="New york" style="width:100%;">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    {#   Carousel ends#}
+    <div class="container">
+        <div class="card col-sm-offset-1 col-sm-6">
+            <div class="card-header">
+                <h3 class="bg-blue">Highlights</h3>
+            </div>
+            <div class="card-body">
+                {{ pdet.p_high1 |linenumbers |linebreaksbr }}
+            </div>
+        </div>
+        <div class="card col-sm-offset-1 col-sm-6">
+            <div class="card-header">
+                <h3 class="bg-blue">Details</h3>
+            </div>
+            <div class="card-body">
+                <p>{{ pdet.p_det1 }}</p>
+            </div>
+        </div>
+        <div class="card col-sm-offset-1 col-sm-6">
+            <div class="card-header"><h3 class="bg-blue">Date</h3></div>
+            <p>{{ pdet.p_price1 }}
+        </div>
+    </div>
+
+
+    <!-- Button trigger modal -->
+{#<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">#}
+{#  Book Now#}
+{#</button>#}
+
+{#<!-- Modal -->#}
+{#<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#  <div class="modal-dialog" role="document">#}
+{#    <div class="modal-content">#}
+{#      <div class="modal-header">#}
+{#        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>#}
+{#        <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#          <span aria-hidden="true">&times;</span>#}
+{#        </button>#}
+{#      </div>#}
+{#        <form method="POST" onsubmit="myFunction()">#}
+{#        {% csrf_token %}#}
+{#      <div class="modal-body">#}
+{##}
+{#            <input type="hidden" name="t1" value="{{ pdet.id }}">#}
+{#            <input type="hidden" name="t2"  value="{{ request.session.id }}" >#}
+{#            No. of people: <input type="number" name="t3">#}
+{#            Select Your Guide: <input type="text" name="t4">#}
+{#            Enter Date of Tour: <input type="date" name="t5">#}
+{##}
+{##}
+{#      </div>#}
+{#      <div class="modal-footer">#}
+{#        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+{#        <input type="submit" class="btn btn-primary">#}
+{#      </div>#}
+{#        </form>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{##}
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="t1" value="{{ pdet.id }}">
+    <input type="hidden" name="t2"  value="{{ request.session.id }}" >
+<!--    <input  class="btn btn-primary" type="submit">-->
+</form>
+    <script>function myFunction()
+    {
+        alert(" Successfully Booked! ");
+    }
+        </script>
+    </body>
+{% endblock %}
+{#<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script><script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>#}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body> <table>
+   <tr>
+        <td>Name</td>
+        <td>Location</td>
+        <td>Approval</td>
+        <td>Picture</td>
+
+    </tr>
+{% for pck in form %}
+
+    <tr>
+        <td>{{ pck.p_name }}</td>
+        <td>{{ pck.p_loc }}</td>
+        <td>{{ pck.p_app }}</td>
+        <td><a href="{{ pck.id }}">VIEW DETAILS</a></td>
+    </tr>
+
+{% endfor %}
+</table>
+</body>
+</html>

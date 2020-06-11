@@ -1,0 +1,15 @@
+{% extends 'indexguide.html'  %}
+
+{%  load static %}
+{% block content1 %}
+        <div style=" margin-left: 20% ; ">
+        Your Status is : {{ movie.user.username }}
+
+        </div>
+
+    <script>function myFunction()
+    {
+            alert("Submitted Suggestion!");
+    }
+        </script>
+{% endblock %}

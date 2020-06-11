@@ -1,0 +1,13 @@
+
+<form method="POST" onsubmit="myFunction()">
+        {% csrf_token %}
+ <input type="hidden" name="t1" value="{{ pdet.id }}">
+            <input type="hidden" name="t2"  value="{{ request.session.id }}" >
+            No. of people: <input type="number" name="t3">
+            Select Your Guide: <input type="text" name="t4">
+            Enter Date of Tour: <input type="date" name="t5">
+
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary">
+</form>
