@@ -60,7 +60,7 @@ def update_profile(request):
         form = UpdateProfile(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return render(request, 'success.html')
+            return render(request, '/')
     else:
         form = UpdateProfile()
 
